@@ -1,9 +1,10 @@
 /** @format */
 
 import React from "react";
+import DefaultLayout from "../components/DefaultLayout";
 
 function Homepage() {
- return <div>Home</div>;
+ return <DefaultLayout>Home</DefaultLayout>;
 }
 
 export default Homepage;
