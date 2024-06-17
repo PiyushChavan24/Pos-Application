@@ -6,8 +6,13 @@ import {
  MenuUnfoldOutlined,
  UploadOutlined,
  UserOutlined,
- VideoCameraOutlined,
+ LogoutOutlined,
+ HomeOutlined,
+ CopyOutlined,
+ UnorderedListOutlined,
 } from "@ant-design/icons";
+import "../resources/layout.css";
+import { Link } from "react-router-dom";
 import { Button, Layout, Menu, theme } from "antd";
 const { Header, Sider, Content } = Layout;
 const DefaultLayout = (props) => {
@@ -18,34 +23,45 @@ const DefaultLayout = (props) => {
  return (
   <Layout>
    <Sider trigger={null} collapsible collapsed={collapsed}>
-    <div className="demo-logo-vertical" />
+    <div className="demo-logo-vertical">
+     <h3>Piyush</h3> {/*to change the logo*/}
+    </div>
     <Menu
      theme="dark"
      mode="inline"
-     defaultSelectedKeys={["1"]}
-     items={[
-      {
-       key: "1",
-       icon: <UserOutlined />,
-       label: "nav 1",
-      },
-      {
-       key: "2",
-       icon: <VideoCameraOutlined />,
-       label: "nav 2",
-      },
-      {
-       key: "3",
-       icon: <UploadOutlined />,
-       label: "nav 3",
-      },
-     ]}
-    />
+     defaultSelectedKeys={window.location.pathname}>
+     {/*window.location.pathname is used to highlight the current page name in sidebar */}
+     <Menu.Item key="/home" icon={<HomeOutlined />}>
+      <Link className={`no-underline `} to={"/home"}>
+       Home
+      </Link>
+     </Menu.Item>
+     <Menu.Item key="/bills" icon={<CopyOutlined />}>
+      <Link className={`no-underline `} to={"/bills"}>
+       Bills
+      </Link>
+     </Menu.Item>
+     <Menu.Item key="/items" icon={<UnorderedListOutlined />}>
+      <Link className={`no-underline `} to={"/items"}>
+       Items
+      </Link>
+     </Menu.Item>
+     <Menu.Item key="/customers" icon={<UserOutlined />}>
+      <Link className={`no-underline `} to={"/customers"}>
+       Customers
+      </Link>
+     </Menu.Item>
+     <Menu.Item key="/logout" icon={<LogoutOutlined />}>
+      <Link className={`no-underline `} to={"/logout"}>
+       LogOut
+      </Link>
+     </Menu.Item>
+    </Menu>
    </Sider>
    <Layout>
     <Header
      style={{
-      padding: 0,
+      padding: 10,
       background: colorBgContainer,
      }}>
      <Button
@@ -61,7 +77,7 @@ const DefaultLayout = (props) => {
     </Header>
     <Content
      style={{
-      margin: "24px 16px",
+      margin: "10px",
       padding: 24,
       minHeight: 280,
       background: colorBgContainer,
