@@ -74,6 +74,7 @@ const DefaultLayout = (props) => {
        height: 64,
       }}
      />
+     <div className="cart-count"></div>
     </Header>
     <Content
      style={{

@@ -1,6 +1,7 @@
 /** @format */
 
 import { Button } from "antd";
+
 import React from "react";
 import { useDispatch } from "react-redux";
 
@@ -12,6 +13,9 @@ function Item({ item }) {
    <h4 className="price">
     <b>Price</b> {item.price} $/-
    </h4>
+   <div className="d-flex justify-content-end">
+    <Button>Add to Cart</Button>
+   </div>
   </div>
  );
 }
