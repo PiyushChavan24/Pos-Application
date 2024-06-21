@@ -8,15 +8,18 @@ import {
  UserOutlined,
  LogoutOutlined,
  HomeOutlined,
+ ShoppingCartOutlined,
  CopyOutlined,
  UnorderedListOutlined,
 } from "@ant-design/icons";
 import "../resources/layout.css";
 import { Link } from "react-router-dom";
 import { Button, Layout, Menu, theme } from "antd";
+import { useSelector } from "react-redux";
 const { Header, Sider, Content } = Layout;
 const DefaultLayout = (props) => {
  const [collapsed, setCollapsed] = useState(false);
+ const { cartItems } = useSelector((state) => state.rootReducer);
  const {
   token: { colorBgContainer, borderRadiusLG },
  } = theme.useToken();
@@ -74,7 +77,12 @@ const DefaultLayout = (props) => {
        height: 64,
       }}
      />
-     <div className="cart-count"></div>
+     <div className="cart-count d-flex align-items-center">
+      <b>
+       <p className="mt-3 mr-2">{cartItems.length}</p>
+      </b>
+      <ShoppingCartOutlined />
+     </div>
     </Header>
     <Content
      style={{

@@ -5,7 +5,7 @@ const initailState = {
  cartitems: [],
 };
 export const rootReducer = (state = initailState, action) => {
- switch ((action, type)) {
+ switch (action.type) {
   default:
    return state;
  }
