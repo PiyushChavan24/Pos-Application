@@ -1,11 +1,17 @@
 /** @format */
 
-const initailState = {
+const initialState = {
  loading: false,
- cartitems: [],
+ cartItems: [],
 };
-export const rootReducer = (state = initailState, action) => {
+
+export const rootReducer = (state = initialState, action) => {
  switch (action.type) {
+  case "addToCart":
+   return {
+    ...state,
+    cartItems: [...state.cartItems, action.payload],
+   };
   default:
    return state;
  }

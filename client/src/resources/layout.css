@@ -60,3 +60,6 @@
  border-top-right-radius: 10px !important;
  border-bottom-right-radius: 8px !important;
 }
+.cart-count {
+ cursor: pointer !important;
+}

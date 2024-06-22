@@ -4,6 +4,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Item from "./pages/Item";
+import CartPage from "./pages/CartPage";
 function App() {
  return (
   <div className="App">
@@ -11,6 +12,7 @@ function App() {
     <Routes>
      <Route path="/home" element={<Homepage />} />
      <Route path="/items" element={<Item />} />
+     <Route path="/cart" element={<CartPage />} />
     </Routes>
    </BrowserRouter>
   </div>

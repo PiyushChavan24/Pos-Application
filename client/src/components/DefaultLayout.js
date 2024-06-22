@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
  MenuFoldOutlined,
  MenuUnfoldOutlined,
@@ -13,16 +13,20 @@ import {
  UnorderedListOutlined,
 } from "@ant-design/icons";
 import "../resources/layout.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Layout, Menu, theme } from "antd";
 import { useSelector } from "react-redux";
 const { Header, Sider, Content } = Layout;
 const DefaultLayout = (props) => {
  const [collapsed, setCollapsed] = useState(false);
  const { cartItems } = useSelector((state) => state.rootReducer);
+ const navigate = useNavigate();
  const {
   token: { colorBgContainer, borderRadiusLG },
  } = theme.useToken();
+ useEffect(() => {
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+ }, [cartItems]);
  return (
   <Layout>
    <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -77,7 +81,9 @@ const DefaultLayout = (props) => {
        height: 64,
       }}
      />
-     <div className="cart-count d-flex align-items-center">
+     <div
+      className="cart-count d-flex align-items-center"
+      onClick={() => navigate("/cart")}>
       <b>
        <p className="mt-3 mr-2">{cartItems.length}</p>
       </b>

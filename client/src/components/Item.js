@@ -6,6 +6,10 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 function Item({ item }) {
+ const dispatch = useDispatch();
+ function addToCart() {
+  dispatch({ type: "addToCart", payload: item });
+ }
  return (
   <div className="item">
    <h4 className="name">{item.name}</h4>
@@ -14,7 +18,7 @@ function Item({ item }) {
     <b>Price</b> {item.price} $/-
    </h4>
    <div className="d-flex justify-content-end">
-    <Button>Add to Cart</Button>
+    <Button onClick={() => addToCart()}>Add to Cart</Button>
    </div>
   </div>
  );
