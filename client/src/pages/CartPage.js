@@ -58,7 +58,11 @@ function CartPage() {
   {
    title: "Action",
    dataIndex: "_id",
-   render: (id, record) => <DeleteOutlined />,
+   render: (id, record) => (
+    <DeleteOutlined
+     onClick={() => dispatch({ type: "deleteFromCart", payload: record })}
+    />
+   ),
   },
  ];
  return (

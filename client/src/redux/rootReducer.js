@@ -12,6 +12,13 @@ export const rootReducer = (state = initialState, action) => {
     ...state,
     cartItems: [...state.cartItems, action.payload],
    };
+  case "deleteFromCart":
+   return {
+    ...state,
+    cartItems: state.cartItems.filter(
+     (item) => item._id !== action.payload._id
+    ),
+   };
   case "updateCart":
    return {
     ...state,
