@@ -19,3 +19,15 @@
  background-color: green !important;
  color: white !important;
 }
+.spinner {
+ height: 100px !important;
+ width: 100px;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+}
+.spinner-border {
+ height: 100px !important;
+ width: 100px !important;
+}

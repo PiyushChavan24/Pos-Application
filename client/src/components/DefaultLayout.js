@@ -19,7 +19,7 @@ import { useSelector } from "react-redux";
 const { Header, Sider, Content } = Layout;
 const DefaultLayout = (props) => {
  const [collapsed, setCollapsed] = useState(false);
- const { cartItems } = useSelector((state) => state.rootReducer);
+ const { cartItems, loading } = useSelector((state) => state.rootReducer);
  const navigate = useNavigate();
  const {
   token: { colorBgContainer, borderRadiusLG },
@@ -29,6 +29,11 @@ const DefaultLayout = (props) => {
  }, [cartItems]);
  return (
   <Layout>
+   {loading && (
+    <div className="spinner">
+     <div class="spinner-border" role="status"></div>
+    </div>
+   )}
    <Sider trigger={null} collapsible collapsed={collapsed}>
     <div className="demo-logo-vertical">
      <h3>Piyush</h3> {/*to change the logo*/}

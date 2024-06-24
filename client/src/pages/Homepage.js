@@ -6,15 +6,20 @@ import axios from "axios";
 import { Col, Row } from "antd";
 import Item from "../components/Item";
 import "../resources/item.css";
+import { useDispatch } from "react-redux";
 function Homepage() {
  const [itemsData, setItemData] = useState([]);
+ const dispatch = useDispatch();
  const getAllItems = () => {
+  dispatch({ type: "showLoading" });
   axios
    .get("/api/items/get-all-items")
    .then((response) => {
+    dispatch({ type: "hideLoading" });
     setItemData(response.data);
    })
    .catch((error) => {
+    dispatch({ type: "hideLoading" });
     console.log(error);
    });
  };
