@@ -64,6 +64,7 @@
  cursor: pointer !important;
 }
 .spinner {
+ z-index: 10;
  height: 100px !important;
  width: 100px;
  position: absolute;
