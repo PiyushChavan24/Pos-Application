@@ -29,4 +29,12 @@ router.post("/edit-items", async (req, res) => {
   res.status(400).json(error);
  }
 });
+router.post("/delete-items", async (req, res) => {
+ try {
+  await ItemsModel.findOneAndDelete({ _id: req.body.itemId });
+  res.send("Item Deleted successfully");
+ } catch (error) {
+  res.status(400).json(error);
+ }
+});
 module.exports = router;

@@ -76,3 +76,7 @@
  height: 100px !important;
  width: 100px !important;
 }
+.ant-layout-content {
+ height: 80vh !important;
+ overflow-y: scroll;
+}

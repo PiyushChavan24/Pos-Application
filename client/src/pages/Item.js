@@ -38,6 +38,21 @@ function Item() {
    });
  };
 
+ const deleteItem = (record) => {
+  dispatch({ type: "showLoading" });
+  axios
+   .post("/api/items/delete-items", { itemId: record._id })
+   .then((response) => {
+    dispatch({ type: "hideLoading" });
+    message.success("item deleted ");
+    getAllItems();
+   })
+   .catch((error) => {
+    dispatch({ type: "hideLoading" });
+    message.error("Something went wrong");
+    console.log(error);
+   });
+ };
  useEffect(() => {
   getAllItems();
  }, []);
@@ -105,6 +120,7 @@ function Item() {
      />
      <DeleteOutlined
       className="mx-2"
+      onClick={() => deleteItem(record)}
       //  onClick={() => dispatch({ type: "deleteFromCart", payload: record })}
      />
     </div>

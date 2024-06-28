@@ -96,6 +96,7 @@ const DefaultLayout = (props) => {
      </div>
     </Header>
     <Content
+     className="site-layout-background"
      style={{
       margin: "10px",
       padding: 24,
