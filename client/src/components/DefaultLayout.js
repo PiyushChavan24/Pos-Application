@@ -63,7 +63,13 @@ const DefaultLayout = (props) => {
        Customers
       </Link>
      </Menu.Item>
-     <Menu.Item key="/logout" icon={<LogoutOutlined />}>
+     <Menu.Item
+      key="/logout"
+      icon={<LogoutOutlined />}
+      onClick={() => {
+       localStorage.removeItem("pos-user");
+       navigate("/login");
+      }}>
       <Link className={`no-underline `} to={"/logout"}>
        LogOut
       </Link>

@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect } from "react";
 import {
  Button,
  Col,
@@ -12,12 +12,33 @@ import {
  Select,
  message,
 } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../resources/authentication.css";
+import axios from "axios";
+import { useDispatch } from "react-redux";
 function Register() {
+ const dispatch = useDispatch();
+ const Navigate = useNavigate();
  const onFinish = (values) => {
-  console.log(values);
+  dispatch({ type: "showLoading" });
+  axios
+   .post("/api/users/login", values)
+   .then((res) => {
+    dispatch({ type: "hideLoading" });
+    message.success("Login succesful please wait for verification");
+    localStorage.setItem("pos-user", JSON.stringify(res.data));
+    Navigate("/home");
+   })
+   .catch(() => {
+    dispatch({ type: "hideLoading" });
+    message.error("Something went wrong");
+   });
  };
+ useEffect(() => {
+  if (localStorage.getItem("pos-user")) {
+   Navigate("/home");
+  }
+ });
  return (
   <div className="authentication">
    {" "}
@@ -31,7 +52,7 @@ function Register() {
       <h3>Login</h3>
 
       <Form.Item
-       name="userid"
+       name="userId"
        label="User ID"
        rules={[{ required: true, message: "Please enter the item price" }]}>
        <Input />
