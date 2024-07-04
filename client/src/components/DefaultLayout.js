@@ -48,6 +48,11 @@ const DefaultLayout = (props) => {
        Home
       </Link>
      </Menu.Item>
+     <Menu.Item key="/cart" icon={<ShoppingCartOutlined />}>
+      <Link className={`no-underline `} to={"/cart"}>
+       Cart
+      </Link>
+     </Menu.Item>
      <Menu.Item key="/bills" icon={<CopyOutlined />}>
       <Link className={`no-underline `} to={"/bills"}>
        Bills
