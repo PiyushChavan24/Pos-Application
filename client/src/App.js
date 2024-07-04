@@ -7,6 +7,8 @@ import Item from "./pages/Item";
 import CartPage from "./pages/CartPage";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Bills from "./pages/Bills";
+import Customer from "./pages/Customer";
 function App() {
  return (
   <div className="App">
@@ -33,6 +35,22 @@ function App() {
       element={
        <ProtectedRoute>
         <CartPage />
+       </ProtectedRoute>
+      }
+     />
+     <Route
+      path="/bills"
+      element={
+       <ProtectedRoute>
+        <Bills />
+       </ProtectedRoute>
+      }
+     />
+     <Route
+      path="/customers"
+      element={
+       <ProtectedRoute>
+        <Customer />
        </ProtectedRoute>
       }
      />

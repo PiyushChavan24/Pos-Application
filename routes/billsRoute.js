@@ -17,5 +17,15 @@ router.post("/charge-bill", async (req, res) => {
    .json({ error: "Error charging bill", details: error.message });
  }
 });
-
+router.get("/get-all-bills", async (req, res) => {
+ try {
+  const bills = await BillModel.find();
+  res.send(bills);
+ } catch (error) {
+  console.error("Error saving bill:", error);
+  res
+   .status(400)
+   .json({ error: "Error charging bill", details: error.message });
+ }
+});
 module.exports = router;
