@@ -12,6 +12,7 @@ import {
 import { Col, Form, Input, Row, Select, message } from "antd";
 import axios from "axios";
 import { Button } from "antd";
+import { useNavigate } from "react-router-dom";
 function CartPage() {
  const dispatch = useDispatch();
  const [billChargeModal, setBillChargeModal] = useState(false);
@@ -69,6 +70,7 @@ function CartPage() {
    ),
   },
  ];
+ const navigate = useNavigate();
  const onFinish = (values) => {
   const reqObject = {
    ...values,
@@ -85,6 +87,7 @@ function CartPage() {
    .post("/api/bills/charge-bill", reqObject)
    .then(() => {
     message.success("Bill Charged Successfully");
+    navigate("/bills");
    })
    .catch((error) => {
     console.error("Error charging bill:", error);
