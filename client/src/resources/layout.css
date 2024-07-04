@@ -50,7 +50,7 @@
  text-decoration: none;
 }
 .demo-logo-vertical {
- color: #086e8d !important;
+ color: #047979 !important;
  font-size: 22px !important;
  font-weight: bold;
  text-align: center !important;
@@ -79,4 +79,14 @@
 .ant-layout-content {
  height: 80vh !important;
  overflow-y: scroll;
+}
+button {
+ background-color: rgb(15, 155, 15) !important;
+ color: #fff !important;
+ border: none !important;
+ box-shadow: none;
+ outline: none;
+}
+.button {
+ background-color: #fff !important;
 }

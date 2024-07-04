@@ -36,7 +36,7 @@ const DefaultLayout = (props) => {
    )}
    <Sider trigger={null} collapsible collapsed={collapsed}>
     <div className="demo-logo-vertical">
-     <h3>Piyush</h3> {/*to change the logo*/}
+     <h3>{collapsed ? "SM" : "Shopping Mall"}</h3> {/*to change the logo*/}
     </div>
     <Menu
      theme="dark"
@@ -88,6 +88,7 @@ const DefaultLayout = (props) => {
       background: colorBgContainer,
      }}>
      <Button
+      className=".button"
       type="text"
       icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       onClick={() => setCollapsed(!collapsed)}
@@ -95,6 +96,7 @@ const DefaultLayout = (props) => {
        fontSize: "16px",
        width: 64,
        height: 64,
+       backgroundColor: collapsed ? "#fff" : "#fff",
       }}
      />
      <div

@@ -4,6 +4,10 @@
  color: tomato !important;
  font-size: 20px !important;
 }
+.item:hover {
+ transform: scale(1);
+ transition: all 0.3;
+}
 .item .price {
  text-align: center;
  color: rgba(0, 0, 0.699);
@@ -47,7 +51,12 @@ input:focus {
 .selected-category {
  border: 4px solid rgb(3, 38, 66);
 }
-
+@media only screen and(max-width:600px) {
+ .categories {
+  width: 100%;
+  overflow-x: scroll !important;
+ }
+}
 .subtotal h3 {
  color: rgb(0, 133, 18) !important;
  font-size: 35px;

@@ -48,7 +48,7 @@ function Homepage() {
 
  return (
   <DefaultLayout>
-   <div className="d-flex">
+   <div className="d-flex categories item">
     {categories.map((category) => (
      <div
       onClick={() => setSelectedCategory(category.name)}
